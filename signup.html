@@ -1,64 +1,88 @@
 <html>
 
-   <head>
-      <title>Password Input Control</title>
-   </head>
-   
-   <body>
-     <h3>Sign Up For Account</h3>
-      <form >
+<head>
+    <title>Password Input Control</title>
+    <script>
+        function process() {
+            alert("Thank You for Signing Up!");
+        }
+
+        function checkName(nameInput) {
+            alert(nameInput.value);
+
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Sign Up For Account</h3>
+    <form onsubmit="process()">
         Prefered Title:
-        <select name = "dropdown">
-            <option value = "Ms" selected>Ms</option>
-            <option value = "Mrs">Mrs</option> 
-            <option value = "Mr" >Mr</option>
-            <option value = "Dr">Dr</option>
-            <option value = "Professor">Professor</option>
-         </select>
-        <br><br>
-         First Name : <input type = "text" name = "first_name" />*
-         <br><br>
-         Last Name : <input type = "text" name = "last_name"/>*
-         <br><br>
-         Age : <input type = "age" name = "age"/>*
-         <br><br>
-         Birth Date (mm/dd/yy) : <input type = "birth" name = "birth"/>*
-         <br><br>
-         Gender* :
-         <input type = "radio" name = "Female" value = "Female"> Female
-         <input type = "radio" name = "Male" value = "Male"> Male
-         <br><br>
-         Address : <input type = "text" name = "address" />*
-         <br><br>
-         User ID : <input type = "text" name = "user_id" />*
-         <br><br>
-         Password: <input type = "password" name = "password" />*
-        <br><br>
-        Email : <input type = "text" name = "email" />*
-       <br><br>
-       Experience with Violin : 
-	 <br><br>
-	      <textarea rows = "5" cols = "50" name = "description">
-         Enter here...
-         </textarea>
-       <br><br>
-       Why you joined :
-	 <br><br>
-	      <textarea rows = "5" cols = "50" name = "description">
-         Enter here...
-         </textarea>
-	<br><br>      
-      Other Personal Information :
-       <br><br>
-       <textarea rows = "5" cols = "50" name = "description">
-         Enter here...
-         </textarea>
-         <br><br>
-         <input type = "submit" name = "submit" value = "Submit" />
-         <br><br><br>
-         <em>*mandatory</em>
-         
-      </form>
-   </body>
-	
+        <select name="dropdown">
+            <option value="Ms" selected>Ms</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Mr">Mr</option>
+            <option value="Dr">Dr</option>
+            <option value="Professor">Professor</option>
+        </select>
+        <br>
+        <br> First Name :
+        <input type="text" name="first_name" onblur="checkName(this)" />*
+        <br>
+        <br> Last Name :
+        <input type="text" name="last_name" />*
+        <br>
+        <br> Age :
+        <input type="age" name="age" />*
+        <br>
+        <br> Birth Date (mm/dd/yy) :
+        <input type="birth" name="birth" />*
+        <br>
+        <br> Gender* :
+        <input type="radio" name="Female" value="Female"> Female
+        <input type="radio" name="Male" value="Male"> Male
+        <br>
+        <br> Address :
+        <input type="text" name="address" />*
+        <br>
+        <br> User ID :
+        <input type="text" name="user_id" />*
+        <br>
+        <br> Password:
+        <input type="password" name="password" />*
+        <br>
+        <br> Email :
+        <input type="text" name="email" />*
+        <br>
+        <br> Experience with Violin :
+        <br>
+        <br>
+        <textarea rows="5" cols="50" name="description">
+            Enter here...
+        </textarea>
+        <br>
+        <br> Why you joined :
+        <br>
+        <br>
+        <textarea rows="5" cols="50" name="description">
+            Enter here...
+        </textarea>
+        <br>
+        <br> Other Personal Information :
+        <br>
+        <br>
+        <textarea rows="5" cols="50" name="description">
+            Enter here...
+        </textarea>
+        <br>
+        <br>
+        <input type="submit" name="submit" value="Submit" />
+        <br>
+        <br>
+        <br>
+        <em>*mandatory</em>
+
+    </form>
+</body>
+
 </html>

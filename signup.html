@@ -8,7 +8,9 @@
         }
 
         function checkName(nameInput) {
-            alert(nameInput.value);
+           if (nameInput.value.length < 2){nameInput.focus();
+           alert(`Don't be lazy! Type in your full name please.
+           Please change the following:  ` + nameInput.value);}
 
         }
     </script>

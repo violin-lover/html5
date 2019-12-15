@@ -6,13 +6,15 @@
         function process() {
             alert("Thank You for Signing Up!");
         }
-        function toProperCase(username){return username.slice(0,1).toUpperCase()+myname.slice(1).toLowerCase()};
+        function toProperCase(username){return username.slice(0,1).toUpperCase()+username.slice(1).toLowerCase()};
         
         function checkName(nameInput) {
            if (nameInput.value.length < 2){nameInput.focus();
            alert(`Don't be lazy! Type in your full name please.
            Please change the following:  ` + nameInput.value);}
-
+           else{
+           nameInput.value= toProperCase(nameInput.value);
+           }
         }
     </script>
 </head>
@@ -33,7 +35,7 @@
         <input type="text" name="first_name" onchange="checkName(this)" />*
         <br>
         <br> Last Name :
-        <input type="text" name="last_name" />*
+        <input type="text" name="last_name" onchange="checkName(this)" />*
         <br>
         <br> Age :
         <input type="age" name="age" />*

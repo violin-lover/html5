@@ -15,7 +15,19 @@
            else{
            nameInput.value= toProperCase(nameInput.value);
            }
-        }
+         }  
+           function checkbirthDate(birthDateInput){
+           alert(birthDateInput.value);
+           let date=
+           new Date(birthDateInput.value);
+           alert(date);
+           let year=date.getYear();
+           let now=new Date();
+           alert(year+now);
+           let age=now.getYear()-year
+           alert(age);
+           }
+        
     </script>
 </head>
 
@@ -26,7 +38,7 @@
         <select name="dropdown">
             <option value="Ms" selected>Ms</option>
             <option value="Mrs">Mrs</option>
-            <option value="Mr">Mr</option>
+            <option value="Mr">Mr</option>bi
             <option value="Dr">Dr</option>
             <option value="Professor">Professor</option>
         </select>
@@ -41,7 +53,7 @@
         <input type="age" name="age" />*
         <br>
         <br> Birth Date (mm/dd/yy) :
-        <input type="birth" name="birth" />*
+        <input type="date" name="birth" onchange="checkbirthDate(this)"/>*
         <br>
         <br> Gender* :
         <input type="radio" name="Female" value="Female"> Female

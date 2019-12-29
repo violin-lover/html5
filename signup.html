@@ -27,6 +27,18 @@
            let age=now.getYear()-year
            alert(age);
            }
+           
+           function checkAge(ageInput){
+             alert(ageInput.value);
+            if(ageInput.value <10){
+              alert('To join this forum, you must be at least 10. Please change this age:   '+ageInput.value);
+              ageInput.focus();
+            }
+            if(ageInput.value >100){
+            alert('You are very old. You age must be less than 100. Please change this age:   '+ageInput.value);
+            ageInput.focus();
+            }
+           }
         
     </script>
 </head>
@@ -50,7 +62,7 @@
         <input type="text" name="last_name" onchange="checkName(this)" />*
         <br>
         <br> Age :
-        <input type="age" name="age" />*
+        <input type="number" name="age" onchange="checkAge(this)" />*
         <br>
         <br> Birth Date (mm/dd/yy) :
         <input type="date" name="birth" onchange="checkbirthDate(this)"/>*

@@ -6,40 +6,49 @@
         function process() {
             alert("Thank You for Signing Up!");
         }
-        function toProperCase(username){return username.slice(0,1).toUpperCase()+username.slice(1).toLowerCase()};
-        
+
+        function toProperCase(username) {
+            return username.slice(0, 1).toUpperCase() + username.slice(1).toLowerCase()
+        };
+
         function checkName(nameInput) {
-           if (nameInput.value.length < 2){nameInput.focus();
-           alert(`Don't be lazy! Type in your full name please.
-           Please change the following:  ` + nameInput.value);}
-           else{
-           nameInput.value= toProperCase(nameInput.value);
-           }
-         }  
-           function checkbirthDate(birthDateInput){
-           alert(birthDateInput.value);
-           let date=
-           new Date(birthDateInput.value);
-           alert(date);
-           let year=date.getYear();
-           let now=new Date();
-           alert(year+now);
-           let age=now.getYear()-year
-           alert(age);
-           }
-           
-           function checkAge(ageInput){
-             alert(ageInput.value);
-            if(ageInput.value <10){
-              alert('To join this forum, you must be at least 10. Please change this age:   '+ageInput.value);
-              ageInput.focus();
+            if (nameInput.value.length < 2) {
+                nameInput.focus();
+                alert(`Don't be lazy! Type in your full name please.
+           Please change the following:  ` + nameInput.value);
+            } else {
+                nameInput.value = toProperCase(nameInput.value);
             }
-            if(ageInput.value >100){
-            alert('You are very old. You age must be less than 100. Please change this age:   '+ageInput.value);
-            ageInput.focus();
+        }
+
+        function checkbirthDate(birthDateInput) {
+            alert(birthDateInput.value);
+            let date =
+                new Date(birthDateInput.value);
+            alert(date);
+            let year = date.getYear();
+            let now = new Date();
+            alert(year + now);
+            let age = now.getYear() - year
+            alert(age);
+        }
+
+        function checkAge(ageInput) {
+            alert(ageInput.value);
+            if (ageInput.value < 10) {
+                alert('To join this forum, you must be at least 10. Please change this age:   ' + ageInput.value);
+                ageInput.focus();
             }
-           }
-        
+            if (ageInput.value > 100) {
+                alert('You are very old. You age must be less than 100. Please change this age:   ' + ageInput.value);
+                ageInput.focus();
+            }
+        }
+
+        function checkGender(gender) {
+            alert('To confirm, you are:   ' + gender);
+
+        }
     </script>
 </head>
 
@@ -65,11 +74,11 @@
         <input type="number" name="age" onchange="checkAge(this)" />*
         <br>
         <br> Birth Date (mm/dd/yy) :
-        <input type="date" name="birth" onchange="checkbirthDate(this)"/>*
+        <input type="date" name="birth" onchange="checkbirthDate(this)" />*
         <br>
         <br> Gender* :
-        <input type="radio" name="Female" value="Female"> Female
-        <input type="radio" name="Male" value="Male"> Male
+        <input type="radio" name="Gender" value="Female" onchange="checkGender('Female')"> Female
+        <input type="radio" name="Gender" value="Male" onchange="checkGender('Male')"> Male
         <br>
         <br> Address :
         <input type="text" name="address" />*

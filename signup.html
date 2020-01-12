@@ -56,8 +56,18 @@
                 passwordInput.focus();
             }
             if (passwordInput.value === passwordInput.value.toLowerCase() || passwordInput.value === passwordInput.value.toUpperCase()) {
-                alert('Your password must be mixed')
+                alert('Your password must be mixed (Upper case, lower case, numbers, etc.)')
             }
+            let hasnumber = false
+            for (let k = 0; k < passwordInput.value.length; k++) {
+                if (0 * passwordInput.value[k] === 0) {
+                    hasnumber = true;
+                }
+            }
+            if (!hasnumber) {
+                alert('Your password needs at least one number')
+            }
+
         }
     </script>
 </head>
@@ -106,7 +116,6 @@
         <br> Experience with Violin :
         <br>
         <textarea rows="5" cols="50" name="description">
-            Enter here...
         </textarea>
         <br>
         <br> Why you joined :

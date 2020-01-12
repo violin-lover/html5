@@ -43,23 +43,34 @@
                 alert('You are very old. You age must be less than 100. Please change this age:   ' + ageInput.value);
                 ageInput.focus();
             }
+
         }
 
         function checkGender(gender) {
             alert('To confirm, you are:   ' + gender);
+        }
 
+        function checkPassword(passwordInput) {
+            if (passwordInput.value.length < 8) {
+                alert('Your password must be at least 8 characters wrong. Please change: ********');
+                passwordInput.focus();
+            }
+            if (passwordInput.value === passwordInput.value.toLowerCase() || passwordInput.value === passwordInput.value.toUpperCase()) {
+                alert('Your password must be mixed')
+            }
         }
     </script>
 </head>
 
 <body>
-    <h3>Sign Up For Account</h3>
+
+    <h1>Sign Up For Account</h1>
     <form onsubmit="process()">
         Prefered Title:
         <select name="dropdown">
             <option value="Ms" selected>Ms</option>
             <option value="Mrs">Mrs</option>
-            <option value="Mr">Mr</option>bi
+            <option value="Mr">Mr</option>
             <option value="Dr">Dr</option>
             <option value="Professor">Professor</option>
         </select>
@@ -87,7 +98,7 @@
         <input type="text" name="user_id" />*
         <br>
         <br> Password:
-        <input type="password" name="password" />*
+        <input type="password" name="password" onchange="checkPassword(this)" />*
         <br>
         <br> Email :
         <input type="text" name="email" />*
@@ -120,6 +131,7 @@
         <em>*mandatory</em>
 
     </form>
+    </center>
 </body>
 
 </html>

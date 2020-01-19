@@ -59,6 +59,7 @@
                 alert('Your password must be mixed (Upper case, lower case, numbers, etc.)')
             }
             let hasnumber = false
+            debugger;
             for (let k = 0; k < passwordInput.value.length; k++) {
                 if (0 * passwordInput.value[k] === 0) {
                     hasnumber = true;
@@ -69,6 +70,8 @@
             }
 
         }
+
+        function checkPhone(phoneInput)
     </script>
 </head>
 
@@ -112,6 +115,9 @@
         <br>
         <br> Email :
         <input type="text" name="email" />*
+        <br>
+        <br> Phone Number:
+        <input type="text" name="phone Number" onchange="checkPhone(this)">
         <br>
         <br> Experience with Violin :
         <br>

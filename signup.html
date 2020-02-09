@@ -63,7 +63,7 @@
             for (let k = 0; k < passwordInput.value.length; k++) {
                 if (0 * passwordInput.value[k] === 0) {
                     hasnumber = true;
-                     
+
                 }
             }
             if (!hasnumber) {
@@ -72,17 +72,23 @@
 
         }
 
-        function checkPhone(phoneInput){
-        debugger;
-        alert(phoneInput);
-        let cleanNumber = "";
-        for(let j = 0; j < phoneInput.length; j++){
-        if (0 * phoneInput[j]===0){cleanNumber += phoneNumber[j]}    
-        }alert(cleanNumber)
-        
+        function checkPhone(phoneInput) {
+            debugger;
+            alert(phoneInput);
+            let cleanNumber = "";
+            for (let j = 0; j < phoneInput.length; j++) {
+                if (0 * phoneInput[j] === 0) {
+                    cleanNumber += phoneInput[j]
+                }
+            }
+            alert(cleanNumber)
+            if (cleanNumber.length < 10)
+                alert('Your phone number is too short')
+            if (cleanNumber[0] === '1')
+                cleanNumber = cleanNumber.slice(1)
+            alert('To confirm, this is your phone Number:  ' + cleanNumber)
+
         }
-          
-        
     </script>
 </head>
 

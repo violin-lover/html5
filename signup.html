@@ -92,6 +92,11 @@
             }
 
         }
+        
+        function checkEmail(email){
+        if (email.indexOf('@')<1 || email.lastIndexOf(".")<email.indexOf("@")){
+        alert('Please type in your full email. Please change this:  '+email)}
+        }
     </script>
 </head>
 
@@ -134,7 +139,7 @@
         <input type="password" name="password" onchange="checkPassword(this)" />*
         <br>
         <br> Email :
-        <input type="text" name="email" />*
+        <input type="text" name="email" onchange="checkEmail(this.value)"/>*
         <br>
         <br> Phone Number:
         <input type="text" name="phone Number" onchange="checkPhone(this)">

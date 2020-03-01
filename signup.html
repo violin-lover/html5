@@ -92,10 +92,24 @@
             }
 
         }
-        
-        function checkEmail(email){
-        if (email.indexOf('@')<1 || email.lastIndexOf(".")<email.indexOf("@")){
-        alert('Please type in your full email. Please change this:  '+email)}
+
+        function checkEmail(email) {
+            if (email.indexOf('@') < 1 || email.lastIndexOf(".") < email.indexOf("@")) {
+                alert('Please type in your full email. Please change this:  ' + email)
+            }
+        }
+
+        function checkInfo(info) {
+            alert(info)
+            let words = info.split(" ");
+            if (words.length < 10) {
+                alert("Please enter more than 10 words please")
+            }
+            let sentence = info.split(".");
+            if (sentence.length < 2) {
+                alert("Please enter at least 1 sentence.")
+            }
+
         }
     </script>
 </head>
@@ -139,29 +153,27 @@
         <input type="password" name="password" onchange="checkPassword(this)" />*
         <br>
         <br> Email :
-        <input type="text" name="email" onchange="checkEmail(this.value)"/>*
+        <input type="text" name="email" onchange="checkEmail(this.value)" />*
         <br>
         <br> Phone Number:
         <input type="text" name="phone Number" onchange="checkPhone(this)">
         <br>
         <br> Experience with Violin :
         <br>
-        <textarea rows="5" cols="50" name="description">
+        <textarea rows="5" cols="50" name="experience">
         </textarea>
         <br>
         <br> Why you joined :
         <br>
         <br>
-        <textarea rows="5" cols="50" name="description">
-            Enter here...
+        <textarea rows="5" cols="50" name="join">
         </textarea>
         <br>
         <br> Other Personal Information :
         <br>
         <br>
-        <textarea rows="5" cols="50" name="description">
-            Enter here...
-        </textarea>
+        <textarea rows="5" cols="50" name="info" onchange="checkInfo(this.value)"></textarea>
+
         <br>
         <br>
         <input type="submit" name="submit" value="Submit" />

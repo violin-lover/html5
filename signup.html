@@ -11,15 +11,26 @@
             return username.slice(0, 1).toUpperCase() + username.slice(1).toLowerCase()
         };
 
-        function checkName(nameInput) {
-            if (nameInput.value.length < 2) {
-                nameInput.focus();
+        function checkfirstName(firstNameInput) {
+            if (firstNameInput.value.length < 2) {
+                firstNameInput.focus();
                 alert(`Don't be lazy! Type in your full name please.
-           Please change the following:  ` + nameInput.value);
+           Please change the following:  ` + firstNameInput.value);
             } else {
-                nameInput.value = toProperCase(nameInput.value);
+                firstNameInput.value = toProperCase(firstNameInput.value);
             }
-        }
+        localStorage.setItem('firstName',firstNameInput.value)}
+        
+        function checklastName(lastNameInput) {
+            if (lastNameInput.value.length < 2) {
+                lastNameInput.focus();
+                alert(`Don't be lazy! Type in your full name please.
+           Please change the following:  ` + lastNameInput.value);
+            } else {
+                lastNameInput.value = toProperCase(lastNameInput.value);
+            }
+        localStorage.setItem('lastName',lastNameInput.value)}
+
 
         function checkbirthDate(birthDateInput) {
             alert(birthDateInput.value);
@@ -111,6 +122,11 @@
             }
 
         }
+        
+        //function checkTitle(titleInput){
+        //localStorage.setItem('title',titleInput)
+       // }
+        
     </script>
 </head>
 
@@ -120,18 +136,18 @@
     <form onsubmit="process()">
         Prefered Title:
         <select name="dropdown">
-            <option value="Ms" selected>Ms</option>
-            <option value="Mrs">Mrs</option>
-            <option value="Mr">Mr</option>
-            <option value="Dr">Dr</option>
-            <option value="Professor">Professor</option>
+            <option value="Ms" selected onchange="checkTitle('Ms')">Ms</option> 
+            <option value="Mrs" onchange="checkTitle('Mrs')">Mrs</option>
+            <option value="Mr" onchange="checkTitle('Mr')">Mr</option>
+            <option value="Dr" onchange="checkTitle('Dr')">Dr</option>
+            <option value="Professor"       					onchange="checkTitle('Professor')">Professor</option>
         </select>
         <br>
         <br> First Name :
-        <input type="text" name="first_name" onchange="checkName(this)" />*
+        <input type="text" name="first_name" onchange="checkfirstName(this)" />*
         <br>
         <br> Last Name :
-        <input type="text" name="last_name" onchange="checkName(this)" />*
+        <input type="text" name="last_name" onchange="checklastName(this)" />*
         <br>
         <br> Age :
         <input type="number" name="age" onchange="checkAge(this)" />*

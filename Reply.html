@@ -1,10 +1,11 @@
 <html>
 <head>
 <script>
-let name="Who"
-let gender="female"
+let firstName=localStorage.getItem('firstName')
+let lastName=localStorage.getItem('lastName')
+let gender=female
 let age=7
-let title="Mr."
+//let title=localStorage.getItem('title')
 </script>
 
 </head>
@@ -13,12 +14,15 @@ let title="Mr."
 
 <h2>Thank you for blah blah blah...:D</h2>
 Dear 
-<span id="title"></span>
-<span id="name"></span>
+<span id='title'></span>
+<span id='firstName'></span>
+<span id='lastName'></span>
 
 <script>
 
-document.getElementById("name").innerHTML = name;
+document.getElementById("firstName").innerHTML = firstName;
+debugger;
+document.getElementById("lastName").innerHTML = lastName;
 document.getElementById("title").innerHTML = title;
 </script>
 

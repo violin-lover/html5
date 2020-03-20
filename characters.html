@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>Table of Some Characters in Computer Form</h2>
+
+    <p>
+        You can break a code line within a text string with a backslash.
+    </p>
+
+    <p id="demo"></p>
+    <table>
+        <script>
+            for (let n = 1; n < 300; n++) {
+                document.write(
+                    "<tr><td>" + n + "</td><td>" + String.fromCharCode(n) + "</td></tr>"
+                )
+            }
+        </script>
+    </table>
+</body>
+
+</html>

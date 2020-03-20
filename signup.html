@@ -123,9 +123,9 @@
 
         }
         
-        //function checkTitle(titleInput){
-        //localStorage.setItem('title',titleInput)
-       // }
+        function checkTitle(titleInput){
+        localStorage.setItem('title',titleInput)
+        }
         
     </script>
 </head>
@@ -133,14 +133,13 @@
 <body>
 
     <h1>Sign Up For Account</h1>
-    <form onsubmit="process()">
-        Prefered Title:
-        <select name="dropdown">
-            <option value="Ms" selected onchange="checkTitle('Ms')">Ms</option> 
-            <option value="Mrs" onchange="checkTitle('Mrs')">Mrs</option>
-            <option value="Mr" onchange="checkTitle('Mr')">Mr</option>
-            <option value="Dr" onchange="checkTitle('Dr')">Dr</option>
-            <option value="Professor"       					onchange="checkTitle('Professor')">Professor</option>
+    Prefered Title:
+        <select name="dropdown" onchange="checkTitle(this.options[this.selectedIndex].value)">
+            <option value="Ms" selected>Ms</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Mr">Mr</option>
+            <option value="Dr">Dr</option>
+            <option value="Professor">Professor</option>
         </select>
         <br>
         <br> First Name :

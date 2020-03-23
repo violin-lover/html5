@@ -1,20 +1,14 @@
-<!DOCTYPE html>
 <html>
 
 <body>
-
-    <script>
-        function convertFarenheitt(farenheittInput) {
-            document.getElementById("celsius").value = (farenheittInput.value - 32) / 1.8
-        }
-
-        function
-        convertCelsius(celsiusInput) {
-            document.getElementById("farenheitt").value = celsiusInput.value * 1.8 + 32
-        }
-    </script>
-
-    <form>
+<head>
+<style>
+table, th, td {
+  border: 1px solid blue;
+}
+</style>
+</head>
+<form>
 
         <h2>Temperature Converter</h2> Farenheitt:
         <input type="number" id="farenheitt" oninput="convertFarenheitt(this)" />
@@ -23,6 +17,31 @@
         <br>
         <input type="reset" name="reset" value="Reset">
     </form>
+
+<table>
+<tr>
+    <th>Celsius</th>
+    <th>Farenheit</th>
+	</tr>
+	<script>
+        for (let c = 10; c <41; c++){
+        	document.write(
+            "<tr><td>" + c + "</td><td>" + Math.round(c * 1.8 + 32) + "</td></tr>" 
+              )
+        }
+        
+        function convertFarenheitt(farenheittInput) {
+            document.getElementById("celsius").value = (farenheittInput.value - 32) / 1.8
+        }
+
+        function
+        convertCelsius(celsiusInput) {
+            document.getElementById("farenheitt").value = celsiusInput.value * 1.8 + 32
+        }
+	
+    </script>
+
+</table>
 
 </body>
 

@@ -10,8 +10,13 @@
         }
     </style>
     <script>
-        function fromNumber(conInput) {
-            document.getElementById("result").value = conInput.charCodeAt(0)
+        function fromText(conInput) {
+            let nums = "";
+            for (let x = 0; x < conInput.length; x++) {
+                nums += conInput.charCodeAt(x) + ",";
+            }
+            nums = nums.slice(0, nums.length - 1)
+            document.getElementById("result").value = nums
         }
 
         function fromChar(nuInput) {
@@ -23,7 +28,7 @@
 <body>
 
     <h2>Table of Some Characters in Computer Form</h2> Character:
-    <input type="text" name="char" onchange="fromNumber(this.value)" /> Character Number:
+    <input type="text" name="char" onchange="fromText(this.value)" /> Character Number:
     <input type "text" id="result" />
     <br>
     <br> Character Number:

@@ -10,23 +10,25 @@
         }
     </style>
     <script>
-        function convert(conInput) {
-            if (isNaN(conInput)) {
-                document.getElementById("result").value = conInput.charCodeAt(0)
-            } else {
-                document.getElementById("result").value = String.fromCharCode(conInput);
-            }
+        function fromNumber(conInput) {
+            document.getElementById("result").value = conInput.charCodeAt(0)
+        }
 
+        function fromChar(nuInput) {
+            document.getElementById("resulttwo").value = String.fromCharCode(nuInput);
         }
     </script>
 </head>
 
 <body>
 
-    <h2>Table of Some Characters in Computer Form</h2>
-
-    <input type="text" name="char" onchange="convert(this.value)" />
+    <h2>Table of Some Characters in Computer Form</h2> Character:
+    <input type="text" name="char" onchange="fromNumber(this.value)" /> Character Number:
     <input type "text" id="result" />
+    <br>
+    <br> Character Number:
+    <input type="text" name="char2" onchange="fromChar(this.value)"> Character:
+    <input type id="resulttwo">
 
     <table>
         <script>

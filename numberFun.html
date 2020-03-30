@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+    <script>
+        function isOdd() {
+            debugger;
+            let num = document.getElementById("num").value
+            if (num % 2 === 0) {
+                document.getElementById("result").innerText = "It is even. Apparently, you aren't unique."
+            } else {
+                document.getElementById("result").innerText = "It is odd. Apparently, you aren't unique."
+            }
+        }
+
+        function isPS() {
+
+        }
+    </script>
+
+    <h1>Fun with Numbers</h1>
+    <p>Please enter or choose a random number:
+        <input type=n umber id="num">
+    </p>
+    <button type=button onclick="isOdd()">is odd? </button>
+    <button type=button onclick="isPS()">is perfect square? </button>
+    <p>
+        <output id="result" />
+    </p>
+</body>
+
+</html>

@@ -20,7 +20,13 @@
         }
 
         function fromChar(nuInput) {
+            let char = "";
+            for (let c = 0; c < nuInput.length; c++) {
+                char += nuInput.charCodeAt(c) + ",";
+            }
+            char = char.slice(0, char.length - 1)
             document.getElementById("resulttwo").value = String.fromCharCode(nuInput);
+
         }
     </script>
 </head>

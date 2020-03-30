@@ -19,13 +19,9 @@
             document.getElementById("result").value = nums
         }
 
-        function fromChar(nuInput) {
-            let char = "";
-            for (let c = 0; c < nuInput.length; c++) {
-                char += nuInput.charCodeAt(c) + ",";
-            }
-            char = char.slice(0, char.length - 1)
-            document.getElementById("resulttwo").value = String.fromCharCode(nuInput);
+        function fromNumber(nuInput) {
+            let numbers = nuInput.split(",");
+            document.getElementById("resulttwo").value = String.fromCharCode(...numbers);
 
         }
     </script>
@@ -38,7 +34,7 @@
     <input type "text" id="result" />
     <br>
     <br> Character Number:
-    <input type="text" name="char2" onchange="fromChar(this.value)"> Character:
+    <input type="text" name="char2" onchange="fromNumber(this.value)"> Character:
     <input type id="resulttwo">
 
     <table>

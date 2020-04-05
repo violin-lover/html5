@@ -21,14 +21,37 @@
         function perS() {
             let num = document.getElementById("num").value
             debugger;
-            for (let i = 1; i < 1000; i++) {
+            for (let i = 1; i <= num / 2; i++) {
                 if (i * i == num) {
                     document.getElementById("result").innerText = "It is a PERFECT square!";
                     break;
                 }
-                document.getElementById("result").innerText = "You are not perfect"
+                document.getElementById("result").innerText = "It is not a perfect square..."
 
             }
+        }
+
+        function factor() {
+            let num = document.getElementById("num").value
+            let factors = [];
+            for (let f = 2; f <= num; f++) {
+                if (num % f === 0) {
+                    factors.push(f)
+                }
+            }
+            document.getElementById("result").innerText = factors
+        }
+
+        function pFactors() {
+            let num = document.getElementById("num").value
+            let pF = [];
+            for (let p = 2; p <= num; p++) {
+                while (num % p === 0) {
+                    num = num / p
+                }
+                pF.push(p)
+            }
+            document.getElementById("result").innerText = pF
         }
     </script>
 
@@ -38,6 +61,8 @@
     </p>
     <button type=button onclick="isOdd()">is odd? </button>
     <button type=button onclick="perS()">is perfect square? </button>
+    <button type=button onclick="factor()">factorize! :0</button>
+    <button type=button onclick="pFactors()">prime factors! :0</button>
     <p>
         <output id="result" />
     </p>

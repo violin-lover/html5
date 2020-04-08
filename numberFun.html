@@ -2,13 +2,13 @@
 <html>
 
 <head>
-    <title>Page Title</title>
+	<title>Page Title</title>
 </head>
 
 <body>
 
-    <script>
-        function isOdd() {
+	<script>
+		function isOdd() {
             debugger;
             let num = document.getElementById("num").value
             if (num % 2 === 0) {
@@ -34,7 +34,7 @@
         function factor() {
             let num = document.getElementById("num").value
             let factors = [];
-            for (let f = 2; f <= num; f++) {
+            for (let f = 1; f <= num; f++) {
                 if (num % f === 0) {
                     factors.push(f)
                 }
@@ -48,17 +48,20 @@
             for (let p = 2; p <= num; p++) {
                 while (num % p === 0) {
                     num = num / p
+                    if(p !== pF[pF.length-1]){
                     pF.push(p)
                     }
                
             }
             document.getElementById("result").innerText = pF
         }
-    </script>
 
-    <h1>Fun with Numbers</h1>
-    <p>Please enter or choose a random number:
-        <input type="number" id="num">
+        }
+	</script>
+
+	<h1>Fun with Numbers</h1>
+	<p>Please enter or choose a random number:
+		<input type="number" id="num">
     </p>
     <button type=button onclick="isOdd()">is odd? </button>
     <button type=button onclick="perS()">is perfect square? </button>

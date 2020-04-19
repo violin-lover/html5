@@ -31,15 +31,21 @@
             }
         }
 
-        function factor() {
-            let num = document.getElementById("num").value
+        const factorize = function(num){
             let factors = [];
             for (let f = 1; f <= num; f++) {
                 if (num % f === 0) {
                     factors.push(f)
                 }
             }
-            document.getElementById("result").innerText = factors
+        return factors;
+        }
+
+        function factor() {
+            let num = document.getElementById("num").value
+            
+        document.getElementById("result").innerText = factorize(num)
+        
         }
 
         function pFactors() {
@@ -55,7 +61,26 @@
             }
             document.getElementById("result").innerText = pF
         }
+        
+        }
 
+        function isPrime(){
+        let pF = factor()
+        if(pF.length === 1 && pF[0] !== 2){
+        document.getElementById("result").innerText = "It is a prime number"
+        }else{
+        document.getElementById("result").innerText = "It is not a prime number"
+        }
+
+        }
+
+        function pi(){
+        let piy = 3
+        for(let d = 1,sign = 1; d < 10000000; d++){
+        piy += (4 / ((d*2)*(d*2+1)*(d*2+2))) * sign
+        sign = -sign
+        }
+      document.getElementById("piyResult").innerText = piy
         }
 	</script>
 
@@ -67,9 +92,48 @@
     <button type=button onclick="perS()">is perfect square? </button>
     <button type=button onclick="factor()">factorize! :0</button>
     <button type=button onclick="pFactors()">prime factors! :0</button>
+    <button type=button onclick="isPrime()">is prime factor?</button>
     <p>
         <output id="result" />
     </p>
+    
+    <button type=button onclick="pi()">Pi</button>  
+    <output id="piyResult"/>
+    <br><br>
+    
+    <script>
+    
+    function compare(){
+    let numA = 1*document.getElementById("numA").value;
+    let numB = 1*document.getElementById("numB").value;
+    debugger;
+    if(numA > numB){document.getElementById("compare").innerText = " > "  };
+    if(numA < numB){document.getElementById("compare").innerText = " < "}
+    if(numA === numB){document.getElementById("compare").innerText = " = "}
+    }
+    
+    function gcd(){
+    let numA = 1*document.getElementById("numA").value;
+    let numB = 1*document.getElementById("numB").value;
+    let fAA = factorize(numA)
+    let fAB = factorize(numB) 
+    debugger;
+    let gcd = 1
+    document.getElementById("greatestCD").innerText = gcd
+    }
+    
+    </script>
+    <h1>Number Twins</h1>
+    <p>
+    <input type="number" id="numA">
+    <span id="compare"></span>
+    <input type="number" id="numB">
+    <br>
+    <br>
+    <button type = "button" onclick = "compare()">Compare</button>
+    <button type = "button" onclick = "gcd()">GCD</button>
+    <div id = "greatestCD">
+      </p>
 </body>
 
 </html>

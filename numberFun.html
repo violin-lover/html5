@@ -2,13 +2,13 @@
 <html>
 
 <head>
-	<title>Page Title</title>
+    <title>Page Title</title>
 </head>
 
 <body style="background-color:MistyRose;">
 
-	<script>
-		function isOdd() {
+    <script>
+        function isOdd() {
             debugger;
             let num = document.getElementById("num").value
             if (num % 2 === 0) {
@@ -31,21 +31,21 @@
             }
         }
 
-        const factorize = function(num){
+        const factorize = function(num) {
             let factors = [];
             for (let f = 1; f <= num; f++) {
                 if (num % f === 0) {
                     factors.push(f)
                 }
             }
-        return factors;
+            return factors;
         }
 
         function factor() {
             let num = document.getElementById("num").value
-            
-        document.getElementById("result").innerText = factorize(num)
-        
+
+            document.getElementById("result").innerText = factorize(num)
+
         }
 
         function pFactors() {
@@ -54,39 +54,41 @@
             for (let p = 2; p <= num; p++) {
                 while (num % p === 0) {
                     num = num / p
-                    if(p !== pF[pF.length-1]){
-                    pF.push(p)
+                    if (p !== pF[pF.length - 1]) {
+                        pF.push(p)
                     }
-               
+
+                }
+                document.getElementById("result").innerText = pF
             }
-            document.getElementById("result").innerText = pF
-        }
-        
-        }
-
-        function isPrime(){
-        let pF = factor()
-        if(pF.length === 1 && pF[0] !== 2){
-        document.getElementById("result").innerText = "It is a prime number"
-        }else{
-        document.getElementById("result").innerText = "It is not a prime number"
-        }
 
         }
 
-        function pi(){
-        let piy = 3
-        for(let d = 1,sign = 1; d < 10000000; d++){
-        piy += (4 / ((d*2)*(d*2+1)*(d*2+2))) * sign
-        sign = -sign
-        }
-      document.getElementById("piyResult").innerText = piy
-        }
-	</script>
+        function isPrime() {
+            let pF = factor()
+            if (pF.length === 1 && pF[0] !== 2) {
+                document.getElementById("result").innerText = "It is a prime number"
+            } else {
+                document.getElementById("result").innerText = "It is not a prime number"
+            }
 
-	<u><h1>Fun with Numbers</h1></u>
-	<p>Please enter or choose a random number:
-		<input type="number" id="num">
+        }
+
+        function pi() {
+            let piy = 3
+            for (let d = 1, sign = 1; d < 10000000; d++) {
+                piy += (4 / ((d * 2) * (d * 2 + 1) * (d * 2 + 2))) * sign
+                sign = -sign
+            }
+            document.getElementById("piyResult").innerText = piy
+        }
+    </script>
+
+    <u>
+		<h1>Fun with Numbers</h1>
+	</u>
+    <p>Please enter or choose a random number:
+        <input type="number" id="num">
     </p>
     <button type=button onclick="isOdd()">is odd? </button>
     <button type=button onclick="perS()">is perfect square? </button>
@@ -94,47 +96,89 @@
     <button type=button onclick="pFactors()">prime factors! :0</button>
     <button type=button onclick="isPrime()">is prime factor?</button>
     <p>
+        Answer:
         <output id="result" />
     </p>
-    
-    <>
-    <button type=button onclick="pi()">Pi</button>  
-    <span id="piyResult"></span>
-    <br><br>
-    
+
+    <u><h1>Calculating Pi</h1></u>
+    <p>There are many special methods used to calculate <span class="pi">&pi;</span> and here is one you can try yourself: it is called the <b>Nilakantha series</b> (after an Indian mathematician who lived in the years 1444–1544). </p>
+    <p>It goes on for ever and has this pattern:</p>
+    <strong><p class="center larger">3 + <span class="intbl"></strong>
+    <strong>4 /</strong>
+    <strong>2&times;3&times;4</strong>
+    <strong></span> &minus; <span class="intbl"></strong>
+    <strong>4 /</strong>
+    <strong>4&times;5&times;6</strong>
+    <strong></span> + <span class="intbl"></strong>
+    <strong>4 /</strong>
+    <strong>6&times;7&times;8</strong>
+    <strong></span> &minus; <span class="intbl"></strong>
+    <strong>4 /</strong>
+    <strong>8&times;9&times;10</strong>
+    <strong></span> + ...</p></strong>
+    <p>
+        <button type=button onclick="pi()">Pi</button>
+       <b>: </b><span id="piyResult"></span>
+        <br>
+        <br>
+    </p>
+
     <script>
-    
-    function compare(){
-    let numA = 1*document.getElementById("numA").value;
-    let numB = 1*document.getElementById("numB").value;
-    debugger;
-    if(numA > numB){document.getElementById("compare").innerText = " > "  };
-    if(numA < numB){document.getElementById("compare").innerText = " < "}
-    if(numA === numB){document.getElementById("compare").innerText = " = "}
-    }
-    
-    function gcd(){
-    let numA = 1*document.getElementById("numA").value;
-    let numB = 1*document.getElementById("numB").value;
-    let fAA = factorize(numA)
-    let fAB = factorize(numB) 
-    debugger;
-    let gcd = 1
-    document.getElementById("greatestCD").innerText = gcd
-    }
-    
+        function compare() {
+            let numA = 1 * document.getElementById("numA").value;
+            let numB = 1 * document.getElementById("numB").value;
+            debugger;
+            if (numA > numB) {
+                document.getElementById("compare").innerText = " > "
+            };
+            if (numA < numB) {
+                document.getElementById("compare").innerText = " < "
+            }
+            if (numA === numB) {
+                document.getElementById("compare").innerText = " = "
+            }
+        }
+
+        function gcd() {
+            let numA = 1 * document.getElementById("numA").value;
+            let numB = 1 * document.getElementById("numB").value;
+            let fAA = factorize(numA)
+            let fAB = factorize(numB)
+            debugger;
+            let gcd = 1
+            for (; fAA.length > 0 && fAB.length > 0;) {
+                if (fAA[fAA.length - 1] < fAB[fAB.length - 1]) {
+                    fAB.pop();
+                    continue;
+                }
+                if (fAA[fAA.length - 1] > fAB[fAB.length - 1]) {
+                    fAA.pop()
+                    continue;
+                }
+                if (fAA[fAA.length - 1] === fAB[fAB.length - 1]) {
+
+                    document.getElementById("greatestCD").innerText = fAA[fAA.length - 1]
+
+                    break;
+                }
+            }
+        }
     </script>
     <u><h1>Number Twins</h1></u>
     <p>
-    <input type="number" id="numA">
-    <span id="compare"></span>
-    <input type="number" id="numB">
-    <br>
-    <br>
-    <button type = "button" onclick = "compare()">Compare</button>
-    <button type = "button" onclick = "gcd()">GCD</button>
-    <div id = "greatestCD">
-      </p>
+        Please enter a number in each box:
+        <br>
+        <input type="number" id="numA">
+        <span id="compare"></span>
+        <input type="number" id="numB">
+        <br>
+        <br>
+        <button type="button" onclick="compare()">Compare</button>
+        <button type="button" onclick="gcd()">GCD</button>
+        <br>
+        <br> 
+        Answer: <span id="greatestCD"></span>
+    </p>
 </body>
 
 </html>

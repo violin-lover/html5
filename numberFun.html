@@ -65,13 +65,14 @@
         }
 
         function isPrime() {
-            let pF = factor()
-            if (pF.length === 1 && pF[0] !== 2) {
+            debugger;
+            let num = document.getElementById("num").value
+            let pF = factorize(num)
+            if (pF.length <= 2) {
                 document.getElementById("result").innerText = "It is a prime number"
             } else {
                 document.getElementById("result").innerText = "It is not a prime number"
             }
-
         }
 
         function pi() {
@@ -118,7 +119,7 @@
     <strong></span> + ...</p></strong>
     <p>
         <button type=button onclick="pi()">Pi</button>
-       <b>: </b><span id="piyResult"></span>
+        <span id="piyResult"></span>
         <br>
         <br>
     </p>
@@ -139,29 +140,26 @@
             }
         }
 
+        const gCD = function(numA, numB) {
+            let cdMax = 1;
+            for (let fAA = factorize(numA), fAB = factorize(numB); fAA.length > 0 && fAB.length > 0;) {
+                if (fAA[fAA.length - 1] === fAB[fAB.length - 1]) {
+                    cdMax = fAA[fAA.length - 1]
+                    return cdMax;
+                }
+
+                if (fAA[fAA.length - 1] < fAB[fAB.length - 1]) {
+                    fAB.pop();
+                } else {
+                    fAA.pop()
+                }
+            }
+        }
+
         function gcd() {
             let numA = 1 * document.getElementById("numA").value;
             let numB = 1 * document.getElementById("numB").value;
-            let fAA = factorize(numA)
-            let fAB = factorize(numB)
-            debugger;
-            let gcd = 1
-            for (; fAA.length > 0 && fAB.length > 0;) {
-                if (fAA[fAA.length - 1] < fAB[fAB.length - 1]) {
-                    fAB.pop();
-                    continue;
-                }
-                if (fAA[fAA.length - 1] > fAB[fAB.length - 1]) {
-                    fAA.pop()
-                    continue;
-                }
-                if (fAA[fAA.length - 1] === fAB[fAB.length - 1]) {
-
-                    document.getElementById("greatestCD").innerText = fAA[fAA.length - 1]
-
-                    break;
-                }
-            }
+            document.getElementById("greatestCD").innerText = gCD(numA, numB)
         }
     </script>
     <u><h1>Number Twins</h1></u>
@@ -175,9 +173,9 @@
         <br>
         <button type="button" onclick="compare()">Compare</button>
         <button type="button" onclick="gcd()">GCD</button>
+        <button type="button" onclick="lcm()">LCM</button>
         <br>
-        <br> 
-        Answer: <span id="greatestCD"></span>
+        <br> Answer: <span id="greatestCD"></span>
     </p>
 </body>
 

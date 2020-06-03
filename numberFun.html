@@ -3,6 +3,9 @@
 
 <head>
     <title>Page Title</title>
+    <script src = "math/numbers.js">
+    
+    </script>
 </head>
 
 <body style="background-color:MistyRose;">
@@ -29,16 +32,6 @@
                 document.getElementById("result").innerText = "It is not a perfect square..."
 
             }
-        }
-
-        const factorize = function(num) {
-            let factors = [];
-            for (let f = 1; f <= num; f++) {
-                if (num % f === 0) {
-                    factors.push(f)
-                }
-            }
-            return factors;
         }
 
         function factor() {
@@ -140,26 +133,22 @@
             }
         }
 
-        const gCD = function(numA, numB) {
-            let cdMax = 1;
-            for (let fAA = factorize(numA), fAB = factorize(numB); fAA.length > 0 && fAB.length > 0;) {
-                if (fAA[fAA.length - 1] === fAB[fAB.length - 1]) {
-                    cdMax = fAA[fAA.length - 1]
-                    return cdMax;
-                }
-
-                if (fAA[fAA.length - 1] < fAB[fAB.length - 1]) {
-                    fAB.pop();
-                } else {
-                    fAA.pop()
-                }
-            }
-        }
-
         function gcd() {
             let numA = 1 * document.getElementById("numA").value;
             let numB = 1 * document.getElementById("numB").value;
             document.getElementById("greatestCD").innerText = gCD(numA, numB)
+        }
+
+        function euclid() {
+            let a = 1 * document.getElementById("numA").value
+            let b = 1 * document.getElementById("numB").value
+            document.getElementById("greatestCD").innerText = EGCD(a, b)
+        }
+
+        function lcm(){
+        let a = 1 * document.getElementById("numA").value
+        let b = 1 * document.getElementById("numB").value
+        document.getElementById("greatestCD").innerText = leastCM(a,b)
         }
     </script>
     <u><h1>Number Twins</h1></u>
@@ -174,6 +163,7 @@
         <button type="button" onclick="compare()">Compare</button>
         <button type="button" onclick="gcd()">GCD</button>
         <button type="button" onclick="lcm()">LCM</button>
+        <button type="button" onclick="euclid()">Euclid</button>
         <br>
         <br> Answer: <span id="greatestCD"></span>
     </p>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src = "fibonacci.js">
+
+</script>
+</head>
+
+<body style="background-color:MistyRose;">
+	<h1>Fibonacci Numbers</h1>
+	<img src = "https://images.ctfassets.net/d7jrd3vkrjh8/5xLzWCnqaBFx6QUpvhuRhg/5c2a123771664463122cb0f8005e06de/fibonacci-initial-numbers-calculation.svg">
+<p>
+<button type = "button" onclick = "shrinkSeq()">&lt;==  Shrink</button>
+ or 
+<button type = "button" onclick = "growSeq()">Next Number ==&gt;</button>
+<br>
+<br>
+<button type = "button" onclick = "shrinkUp()">Shrink Up ==&gt</button>
+or
+<button type = "button" onclick = "growDown()">&lt== Grow Down</button>
+<br>
+<br>
+<button type = "button" onclick = "gRatio()">Golden Ratio</button>
+<br>
+<br>
+Fancy Sequence! : <div id = "fSequence"></div>
+<br>
+Formula: <div id = "next"></div>
+<br>
+Golden Ratio: <div id = "gR"></div>
+<br>
+</p>
+
+<script>
+function nextNum(){
+document.getElementById("next").innerText = fib.nextNum() 
+}
+
+function growSeq(){
+fib.grow()
+document.getElementById("next").innerText = fib.nextNum()
+fSequence()
+}
+
+function shrinkSeq(){
+fib.shrink()
+fSequence()
+}
+
+function growDown(){
+fib.growDown()
+fSequence()
+}
+
+function shrinkUp(){
+fib.shrinkUp()  
+fSequence()
+}
+
+function gRatio(){
+document.getElementById("gR").innerText = fib.goldenRatio()  
+fSequence()
+}
+
+function fSequence(){
+let html = ""
+for(let h = 0; h < fib.sequence.length; h++){
+let title = fib.sequence[h - 1] + "+" + fib.sequence[h-2]
+html += ` <span style="color:light_blue;background-color:${(fib.sequence[h] % 2 === 0) ? "skyBlue" : "thistle"};font-size:120%;" title=${title}>${fib.sequence[h]}</span>`
+  }
+document.getElementById("fSequence").innerHTML = html
+}
+</script>
+
+</body>
+</html>

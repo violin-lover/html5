@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Page Title</title>
+	<script src="stats.js">
+
+	</script>
+
+	<script>
+		let scores = [] 
+  function getScore(){
+  scores = []
+  for(let n = 1; n <=31; n++){
+  scores.push(Math.round(40 + Math.random()*100 / (1+2/3)))
+    }
+  document.getElementById("scores").value = scores
+  }
+
+  function getMax(){
+   document.getElementById("result").innerHTML = "The highest score is: " + max(scores) 
+  }
+
+  function getMin(){
+  document.getElementById("result").innerHTML = "The lowest score is: " + mi(scores)  
+  }
+
+  function getRange(){
+  document.getElementById("result").innerHTML = "The range of the scores is: " + range(scores)
+  }
+
+  function getMean(){
+  document.getElementById("result").innerHTML = "The average of the scores (rounded) is: " + mean(scores) 
+  }
+
+  function getMedian(){
+  document.getElementById("result").innerHTML = "The median of the scores is: " + median(scores)
+  }
+
+  function getSort(){
+  document.getElementById("scores").value = sort(scores)
+  }
+	</script>
+</head>
+
+<body style="background-color:LavenderBlush;">
+	<h1>Statistics!</h1>
+
+	<p>
+		<button type = "button" onclick = "getScore()">Generate Test Scores</button>
+<br>
+<br>
+<textarea rows="5" cols="50" id ="scores"></textarea>
+<br>
+<br>
+<button type = "button" onclick = "getMean()">Mean Score</button>
+<button type = "button" onclick = "getMedian()">Median of Scores</button>
+<button type = "button" onclick = "getRange()">Range of Scores</button>
+<br>
+<br>
+<button type = "button" onclick = "getMax()">Highest Score</button>
+<button type = "button" onclick = "getMin()">Lowest Score</button>
+<button type = "button" onclick = "getSort()">Sort Scores</button>
+<br>
+<br>
+Result<b>:</b> <div id = "result"></div>
+<br>
+<button type = "button" onclick = "cGrades()">Convert to grades</button><b> : </b>
+<br>
+<br>
+<textarea rows="5" cols="50" id ="grades"></textarea>
+<br>
+<br>
+<button type = "button" onclick = "getMode()">Mode of Grades</button>
+</p>
+
+</body>
+</html>

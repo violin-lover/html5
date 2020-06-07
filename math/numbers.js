@@ -37,4 +37,4 @@ const gCD = function(numA, numB) {
             return EGCD(b, a % b)
         }
 
-        const
+        

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Page Title</title>
+	<title>Statistics! | snowkitty.repl.co</title>
 	<script src="stats.js">
 
 	</script>
@@ -12,8 +12,8 @@
   function getScore(){
   scores = []
   for(let n = 1; n <=31; n++){
-  scores.push(Math.round(40 + Math.random()*100 / (1+2/3)))
-    }
+  scores.push(Math.round(50 + Math.random()*50))
+  }
   document.getElementById("scores").value = scores
   }
 
@@ -42,8 +42,15 @@
   }
 
   function cGrades(){
-  debugger;
-  document.getElementById("grades").value = numbers.map(toGrade)
+  document.getElementById("grades").value = sort(scores.map(toGrade))
+  }
+
+  function getMode(){
+  document.getElementById("mode").innerHTML = mode(sort(scores.map(toGrade)))
+  }
+
+  function getModeO(){
+  document.getElementById("mode").innerHTML = modeO(scores.map(toGrade))
   }
 	</script>
 </head>
@@ -77,6 +84,10 @@ Result<b>:</b> <div id = "result"></div>
 <br>
 <br>
 <button type = "button" onclick = "getMode()">Mode of Grades</button>
+<button type = "button" onclick = "getModeO()">Mode of Grades but in a different way</button>
+<br>
+<br>
+The mode of your teaching ability is <b>: </b><div id = "mode"></div>
 </p>
 
 </body>

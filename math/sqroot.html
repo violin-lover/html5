@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>How to Calculate Square Roots | snowkitty.repl.co</title>
+	<script>
+		function getSqRoot(){
+let num = 1 * document.getElementById("numbers").value
+let g = 1 * document.getElementById("guess").value
+debugger;
+let result = 1 * (((num / g) + g) / 2)
+if(Math.abs(result * result - num) < 0.00000001){ 
+document.getElementById("result").innerHTML = "This is the square root: " + result;
+}
+
+if(result * result != num){
+document.getElementById("guess").value = result;
+  }
+}
+
+	</script>
+</head>
+
+<body style="background-color:LavenderBlush;">
+
+	<h1>How to Calculate Square Roots</h1>
+	
+		<h3>A fun way to calculate square roots!</h3>
+<h4>Input the number that you want to calculate: </h4>
+<input type = "number" id = "numbers">
+<br>
+<br>
+<h4>What is your guess?</h4>
+<input type = "number" id = "guess">
+<br>
+<br>
+<h3>Here is how we calculate the approximate value of a number's square root!</h3>
+<p>
+1. Make an educated guess. You could make a random guess too, but it would take a long time to figure it out.
+<br>
+<br>
+2. Take the number you are trying to find the square root of, and divide it by your guess.
+<br>
+<br>
+3. Add your quotient to your original guess.
+<br>
+<br>
+4. Take the sum of the previous step and divide it by two. In other words, you halve it.
+<br>
+<br>
+5. Now, set that as your <b>new</b> guess, and repeat the steps starting from step 2 again. The more you do it, the more accurate it will get.
+</p>
+<br>
+<button type = "button" onclick = "getSqRoot()">Click here to expand on your square root!</button>
+<br>
+<br>
+<div id = "result"></div>
+<br>
+<br>
+</body>
+</html>

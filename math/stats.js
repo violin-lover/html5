@@ -70,3 +70,61 @@ const sort = function (numbers) {
 }
 
 const toGrade = (score) => score < 60 ? "F" : score < 70 ? "D" : score < 80 ? "C" : score < 90 ? "B" : "A";
+
+const mode = function (grades) {
+
+  /*let empty = []
+  let i = 0
+  let max = 0
+  let a = toGrade()
+  
+  if(i<a.length){
+  
+     if (a[i]==a[i+1]){
+         empty = a[i] 
+     i += 1
+      }else{
+        i +=1
+        }
+  
+   }
+   return empty;*/
+  let modeGrade = "";
+  let maxCount = 0;
+  let cCount = 0;
+  let cElement = "";
+  for (let p = 1; p < grades.length; p++) {
+    if (grades[p - 1] !== grades[p]) {
+     if (cCount > maxCount) {
+      maxCount = cCount;
+      cCount = 0;
+      modeGrade = cElement;
+    }
+      cCount = 0
+      cElement = grades[p]
+    }
+      cCount++;
+      
+      }
+  return cCount > maxCount ? cElement : modeGrade;
+}
+
+const modeO = function (grades) {
+let counter = {};
+for(let i = 0; i < grades.length; i++){
+if(grades[i] in counter){
+counter[grades[i]]++
+    } else {
+    counter[grades[i]] = 1;
+    }
+  }
+  let maxCount = 0;
+  let mode = ""
+  for(c in counter){
+  if(maxCount < counter[c]){
+  maxCount = counter[c];
+  mode = c;
+    }
+  }
+  return mode;
+}

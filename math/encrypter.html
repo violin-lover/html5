@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+background-color: lightblue;
+}
+
+h1{
+text-align: center;
+}
+
+.textarea {
+background-color: AliceBlue;
+border: Gray;
+}
+
+.btn {
+background-color: CornSilk;
+border: Gray;
+}
+
+.input {
+background-color: AliceBlue;
+border: Gray;
+}
+</style>
+<title>Secret Encrypter | snowkitty.repl.co</title>
+<script>
+
+/*function convert(){
+let h = document.getElementById("key").value;
+let message = document.getElementById("message").value;
+message.split("");
+message.split("").map(c => c.charCodeAt());
+message.split("").map(c => c.charCodeAt()).map(n => n^h);
+let secret = message.split("").map(c => c.charCodeAt()).map(n => n^h).map(n => String.fromCharCode(n)).join("");
+document.getElementById("encrypted").value = secret
+return secret;
+}
+
+function original(){
+debugger;
+let h = document.getElementById("key").value;
+let decrypt = convert();
+let originalM = decrypt.split("").map(c => c.charCodeAt()).map(n => n^h).map(n => String.fromCharCode(n)).join("")
+document.getElementById("encrypted").value = originalM
+}*/
+
+function encrypt(){
+let key = document.getElementById("key").value
+let input = document.getElementById("message").value
+b = convert(input,key);
+    b = btoa(b);
+    document.getElementById("encrypted").value = b;
+    
+}
+
+function convert(input,key){
+let b = "";
+    
+    for(var i=0; i<input.length; i++) {
+        var value1 = input[i].charCodeAt(0);
+        var value2 = key[i % key.length].charCodeAt(0);
+        b += String.fromCharCode(value1 ^ value2);
+    }  
+    return b;
+}
+
+function decrypt(){
+let key = document.getElementById("key").value
+let input = document.getElementById("encrypted").value
+input = atob(input);
+input = convert(input,key);
+document.getElementById("encrypted").value = input;
+}
+</script>
+</head>
+<body>
+
+<h1>Secret Message Encrypter</h1>
+<h3>This is where you can encrypt secret messages and decrypt them with your key! Have fun with this!</h3>
+<p>
+Input your number. This will be your key/password:
+<br>
+<br>
+<input type = "password" id = "key" class = input>
+<br>
+<br>
+Now, type in the message you want to encrypt:
+<br>
+<br>
+<textarea id = "message" rows = "7" cols = "40" class = textarea></textarea>
+<br>
+<br>
+<button id = "encrypt" onclick = "encrypt()" class = btn>Encrypt</button>        <== Press this to encrypt your message
+<br>    
+<button id = "decrypt" onclick = "decrypt()" class = btn>Decrypt</button>        <== Press this to decrypt your message           
+<br>
+<br>
+This is your encrypted code! Press the decrypt button to return to the original code:
+<br>
+<br>
+<textarea id = "encrypted" rows = "7" cols = "40" class = textarea></textarea> 
+<br>
+<br>
+<b>IMPORTANT:</b> When decrypting your code, make sure that you have the exact same key as when you encrypted it. Otherwise, it won't be the exact same message.
+</p>
+<p>
+You may want to encrypt something so that your sibling can't see it, or you want to give your friend a secret message so that no on else can understand it. Either way, encrypters <i>and</i> decrypters are used all around the world, and they can be very useful. For example, the people working on the Bletchly Park project during WW2 managed to use a special decrypter they created to crack the "Unbreakable" Enigma that Germany used to send secret messages.
+</p>
+
+</body>
+</html>

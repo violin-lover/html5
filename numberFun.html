@@ -97,27 +97,17 @@
     <u><h1>Calculating Pi</h1></u>
     <p>There are many special methods used to calculate <span class="pi">&pi;</span> and here is one you can try yourself: it is called the <b>Nilakantha series</b> (after an Indian mathematician who lived in the years 1444–1544). </p>
     <p>It goes on for ever and has this pattern:</p>
-    <strong><p class="center larger">3 + <span class="intbl"></strong>
-    <strong>4 /</strong>
-    <strong>2&times;3&times;4</strong>
-    <strong></span> &minus; <span class="intbl"></strong>
-    <strong>4 /</strong>
-    <strong>4&times;5&times;6</strong>
-    <strong></span> + <span class="intbl"></strong>
-    <strong>4 /</strong>
-    <strong>6&times;7&times;8</strong>
-    <strong></span> &minus; <span class="intbl"></strong>
-    <strong>4 /</strong>
-    <strong>8&times;9&times;10</strong>
-    <strong></span> + ...</p></strong>
     <p>
-        <button type=button onclick="pi()">Pi</button>
+    \[3 + \frac{4}{2×3×4} - \frac{4}{4×5×6} + \frac{4}{6×7×8} - \frac{4}{8×9×10} + ...\]
+    </p>
+    
+        <button type=button onclick="pi()">Click here to expand on Pi</button>
         <span id="piyResult"></span>
         <br>
         <br>
     </p>
 
-    <script>
+    <script "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
         function compare() {
             let numA = 1 * document.getElementById("numA").value;
             let numB = 1 * document.getElementById("numB").value;

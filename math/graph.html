@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Graph Your Equation | snowkitty.repl.co</title>
+  <script src="https://unpkg.com/mathjs@7.0.2/dist/math.min.js"></script>
+
+  <script src="https://cdn.plot.ly/plotly-1.35.2.min.js"></script>
+
+  <style>
+    input[type=text] {
+      width: 300px;
+    }
+    input {
+      padding: 6px;
+    }
+    body, html, input {
+      font-family: sans-serif;
+      font-size: 11pt;
+
+    }
+    form {
+      margin: 20px 0;
+    }
+
+    .btn {
+    width: 70px;
+    height: 50px;
+    font-size: 20px;
+    font-family: "Times New Roman", Times, serif;
+    background-color: PapayaWhip;
+    }
+
+    .head {
+    font-family: "Times New Roman", Times, serif;
+    }
+  </style>
+</head>
+<body style="background-color:LavenderBlush;">
+<h1 class = head>Graph Your Equation</h1>
+<form id="form">
+  <label for="eq">Enter an equation:</label>
+  <input type="text" id="eq" value="4 * sin(x) + 5 * cos(x/2)" />
+  <input type="submit" value="Draw"/>
+  <br><br>
+  <button type = "button" onclick = "zoomIn()" class = btn>Zoom In</button>
+  <button type = "button" onclick = "panR()" class = btn>Pan Right</button>
+  <button type = "button" onclick = "panL()" class = btn>Pan Left</button>
+  <button type = "button" onclick = "zoomOut()" class = btn>Zoom Out</button>
+  </form>
+
+<div id="plot"></div>
+
+<p>
+  Used plot library: <a href="https://plot.ly/javascript/">Plotly</a>
+</p>
+
+<script>
+  let lower = -10
+  let upper = 10
+  
+  function zoomIn(){
+  let width = upper - lower
+  let xMin = lower + 1*(width/4);
+  let xMax = upper - 1*(width/4);
+  draw(xMin,xMax)
+  }
+
+  function zoomOut(){
+  let width = upper - lower
+  let xMin = lower - 1*(width/4);
+  let xMax = upper + 1*(width/4);
+  draw(xMin,xMax)
+  }
+
+  function panR(){
+  let width = upper - lower
+  let xMin = lower + (width/4)
+  let xMax = upper + (width/4)
+  draw(xMin,xMax)
+  }
+
+  function panL(){
+  let width = upper - lower
+  let xMin = lower - (width / 4)
+  let xMax = upper - (width / 4)
+  draw(xMin,xMax)
+  }
+
+  function draw(xMin = -5, xMax = 5) {
+  lower = xMin;
+  upper = xMax;
+    try {
+      // compile the expression once
+      const expression = document.getElementById('eq').value
+      const expr = math.compile(expression)
+
+      // evaluate the expression repeatedly for different values of x
+      const xValues = math.range(xMin, xMax, (xMax - xMin) / 1000).toArray()
+      const yValues = xValues.map(function (x) {
+        return expr.evaluate({x: x})
+      })
+
+      // render the plot using plotly
+      const trace1 = {
+        x: xValues,
+        y: yValues,
+        type: 'scatter'
+      }
+      const data = [trace1]
+      Plotly.newPlot('plot', data)
+    }
+    catch (err) {
+      console.error(err)
+      alert(err)
+    }
+  }
+
+  document.getElementById('form').onsubmit = function (event) {
+    event.preventDefault()
+    draw()
+  }
+
+  draw()
+</script>
+
+</body>
+</html>

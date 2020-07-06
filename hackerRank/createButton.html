@@ -1,0 +1,26 @@
+<!-- Enter your HTML code here -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Button</title>
+        <style>
+        #btn {
+    width: 96px;
+    height: 48px;
+    font-size: 24px;
+}
+        </style>
+    </head>
+    <body style="background-color:LemonChiffon;">
+      <script>
+
+function operation(){
+let i = 1 * document.getElementById("btn").innerHTML
+document.getElementById("btn").innerHTML = i+1
+}
+ 
+      </script>    
+<button id = "btn" onclick = "operation()"></button>
+      </body>
+</html>

@@ -33,7 +33,6 @@
 
 
         function checkbirthDate(birthDateInput) {
-            alert(birthDateInput.value);
             let date =
                 new Date(birthDateInput.value);
             alert(date);
@@ -110,8 +109,8 @@
             }
         }
 
-        function checkInfo(info) {
-            alert(info)
+        function checkInfo() {
+            
             let words = info.split(" ");
             if (words.length < 10) {
                 alert("Please enter more than 10 words please")
@@ -173,10 +172,6 @@
         <br> Phone Number:
         <input type="text" name="phone Number" onchange="checkPhone(this)">
         <br>
-        <br> Experience with Violin :
-        <br>
-        <textarea rows="5" cols="50" name="experience">
-        </textarea>
         <br>
         <br> Why you joined :
         <br>

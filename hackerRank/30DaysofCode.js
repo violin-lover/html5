@@ -52,7 +52,7 @@ if(min > this.elements[i]){
 }
 
 //Queues and Stacks -- day 18
-
+//note that this is my original
 function Solution(){
 let stack = [], queue = [];
 
@@ -60,4 +60,34 @@ this.pushCharacter = (a) => {return stack.push(a)}
 this.enqueueCharacter = (a) => {return queue.unshift(a)}
 this.popCharacter = (a) => {return stack.pop(a)}
 this.dequeueCharacter = (a) => {return queue.pop(a)}
+}
+
+//this is a simplified version (thank you Kenny)
+function Solution(){
+this.stack = [], this.queue = [];
+
+this.pushCharacter = (a) => this.stack.push(a);
+this.enqueueCharacter = (a) => this.queue.unshift(a);
+this.popCharacter = () => this.stack.pop();
+this.dequeueCharacter = () => this.queue.pop();
+}
+
+/*
+
+In Javascript, define a function
+
+test your code in the browser console with
+divisorSum(20)  // expect 42
+divisorSum(6)  // expect 12
+
+*/
+
+const divisorSum = function(n){
+let result = 0;
+for(let i = 1; i <= n; i++){
+if(n % i === 0){
+result += i
+    }   
+  }
+    return result;
 }

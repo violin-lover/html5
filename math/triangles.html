@@ -2,11 +2,11 @@
 <html>
 
 <head>
-<title>Create a triangle</title>
+<title>Triangle Evaluator</title>
 </head>
 
 <body style="background-color:MistyRose;">
-	<h1>Triangle evaluator</h1>
+	<h1>Triangle Evaluator</h1>
 
 	Design an html5 app that evaluates triangles. Use 3 input boxes to let the user enter the three sides by length. Validate
 	that the input values are between 1 and 300. Do not restrict the order of the values (e.g., the longest first) Validate
@@ -30,40 +30,153 @@
   <input type = "number" id = "side3">
   <br>
   <br>
+  Input a color for your triangle: <input type = "color" id = "colorPicker">
+  <br>
+  <br>
   <button type = "button" onclick = "typeOfTriangle()">What type of triangle is this?</button>
+  <button type = "button" onclick = "isRightTriangle()">Is this a right triangle?</button>
   <button type = "button" onclick = "drawTriangle()">Draw my triangle!</button>
+  <button type = "button" onclick = "lengths()">What is the base and height?</button>
+  <button type = "button" onclick = "areaOfTriangle()">What is the area?</button>
   <br>
   <br>
-  <div id = "result"></div>
+  <em>What type of triangle this is: </em>
+  <span id = "result"></span>
+  <br>
+  <br>
+  <em>Is this a right triangle: </em>
+  <span id = "rightTriangleResult"></span>
+  <br>
+  <br>
+  <em>Base: </em>
+  <span id = "baseOfTriangle"></span>
+  <br>
+  <br>
+  <em>Height: </em>
+  <span id = "heightOfTriangle"></span>
+  <br>
+  <br>
+  <em>Area: </em>
+  <spam id = "areaOfTriangleResult">
+  <br>
+  <br>
+  <svg height="500" width="500" id = "svg">
+  <polygon points="0,0 0,0 0,0" style="fill:LightBlue;stroke:purple;stroke-width:1" />
+</svg>
 </body>
 
 <script>
 function typeOfTriangle(){
+debugger;
 let side1 = +document.getElementById("side1").value
 let side2 = +document.getElementById("side2").value
 let side3 = +document.getElementById("side3").value
-let sides = [side1,side2,side3].sort()
+let sides = [side1,side2,side3]
+let sorted = sides.sort((a,b) => (a-b));
 let longSide = sides[2]
 let shortSide = sides[0]
 let middleSide = sides[1]
 
 if(shortSide + middleSide <= longSide){
 alert("Please adjust the lengths")
-return 
 }
 
 if(side1 !== side2 && side1 !== side3 && side2 !== side3){
-document.getElementById("result").innerHTML = "It is a scalene triangle."
+document.getElementById("result").innerText = "It is a scalene triangle."
   }
 
 if(shortSide == middleSide && middleSide !== longSide || middleSide == longSide && longSide !== shortSide){
-document.getElementById("result").innerHTML = "It is a isoceles triangle."
+document.getElementById("result").innerText = "It is a isoceles triangle."
   }
 
 if(shortSide === middleSide && middleSide === longSide){
-document.getElementById("result").innerHTML = "It is an equilateral triangle."
+document.getElementById("result").innerText = "It is an equilateral triangle."
+}
+
+}
+
+function isRightTriangle(){
+let side1 = +document.getElementById("side1").value
+let side2 = +document.getElementById("side2").value
+let side3 = +document.getElementById("side3").value
+debugger;
+let sides = [side1,side2,side3]
+let sorted = sides.sort((a,b) => (a-b));
+let longSide = sorted[2]
+let shortSide = sorted[0]
+let middleSide = sorted[1]
+let hypotnuse = longSide
+let shortLeg = shortSide
+let mediumLeg = middleSide
+
+if(shortLeg**2 + mediumLeg**2 === hypotnuse**2){
+document.getElementById("rightTriangleResult").innerText = "It is a right triangle!"
+} else {
+document.getElementById("rightTriangleResult").innerText = "It is not a right triangle."
 }
 }
-</script>
+
+
+
+function lengths(){
+let side1 = +document.getElementById("side1").value
+let side2 = +document.getElementById("side2").value
+let side3 = +document.getElementById("side3").value
+let sides = [side1,side2,side3]
+let sorted = sides.sort((a,b) => (a-b));
+let longSide = sides[2]
+let shortSide = sides[0]
+let middleSide = sides[1]
+let stepOne = (longSide + shortSide + middleSide) / 2
+let s = 1 * (longSide + shortSide + middleSide) / 2
+let area = Math.sqrt(s*(s - longSide)*(s - shortSide)*(s - middleSide))
+
+let base = longSide
+let height = (2*area) / base;
+
+
+document.getElementById("baseOfTriangle").innerHTML = base;
+document.getElementById("heightOfTriangle").innerHTML = height;
+}
+
+function areaOfTriangle(){
+let side1 = 1 * document.getElementById("side1").value;
+let side2 = 1 * document.getElementById("side2").value;
+let side3 = 1 * document.getElementById("side3").value;
+let sides = [side1, side2, side3];
+let hi = sides.sort((a,b)=>a-b);
+let a = hi[2];
+let b = hi[0];
+let c = hi[1];
+let s = 1 * (a + b + c) / 2;
+let area = Math.sqrt(s*(s - a)*(s - b)*(s - c));
+document.getElementById("areaOfTriangleResult").innerHTML = area;
+}
+
+function drawTriangle(){
+debugger;
+let side1 = +document.getElementById("side1").value
+let side2 = +document.getElementById("side2").value
+let side3 = +document.getElementById("side3").value
+let sides = [side1,side2,side3]
+let sorted = sides.sort((a,b) => (a-b));
+let longSide = sides[2]
+let shortSide = sides[0]
+let middleSide = sides[1]
+let s = 1 * (longSide + shortSide + middleSide) / 2
+let area = Math.sqrt(s*(s - longSide)*(s - shortSide)*(s - middleSide))
+let base = longSide
+let height = (2*area) / base;
+let x1 = 0;
+let x2 = Math.sqrt(-(height**2) + shortSide**2);
+let x3 = longSide;
+let y1 = 0;
+let y2 = height;
+let y3 = 0;
+
+svg.innerHTML =  `<polygon points= "${x1},${y1} ${x2},${y2} ${x3},${y3}"style="fill:LightBlue;stroke:purple;stroke-width:1" />`
+}
+
+</script>)
 
 </html>

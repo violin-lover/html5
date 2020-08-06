@@ -12,18 +12,24 @@ wordMap.set(words[i] , wordMap.get(words[i]) + 1);
 wordMap.set(words[i] , 1)
     }
   }
-  display(wordMap)
+  let total = frequency(wordMap)
+  let entries = wordMap.entries()
+  let sortedEntries = Array.from(entries).sort(sortOccurence)
+  display(total,sortedEntries)
 }
 
- const createRow = function(k){
+ const createRow = function(k,total){
+   let percent = 100*(k[1] / total)
    let rowHtml = `<tr>
    <td>${k[0]}</td>
    <td>${k[1]}</td>
+   <td>${percent.toFixed(2) + "%"}</td>
    </tr>`
     return rowHtml;
  }
 
-function display(wordMap){
+function display(total,sortedEntries){
+debugger;
 let tableHTML = `
 <table>
 <tr>
@@ -32,11 +38,23 @@ let tableHTML = `
   <th>Frequency</th>
 </tr>`
 
-for(const k of wordMap.entries()){
-tableHTML += createRow(k)
+for(const k of sortedEntries){
+tableHTML += createRow(k,total)
   }
   tableHTML += `</table>`
   wordFrequencyAnswer.innerHTML = tableHTML;
+}
+
+function frequency(wordMap){
+let total = 0;
+for(const k of wordMap.values()){
+total += k;
+  }
+  return total;
+}
+
+const sortOccurence = function(entryA,entryB){
+return entryB[1] - entryA[1];
 }
 
 

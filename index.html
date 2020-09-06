@@ -2,13 +2,93 @@
 <html>
  
   <head>
-      
+  <title>Home Page</title>
+  <meta charset="utf-8">
+
+  <style>
+
+#quoteOfTheMoment {
+background-color: LightSteelBlue;
+font-size : 22px;
+}
+
+#weather {
+background-color: LightSteelBlue;
+font-size: 17px;
+}
+  </style>
+
+
+  <script>
+
+fetch("https://type.fit/api/quotes")
+  .then(function(response) {
+    return response.json();
+  })
+
+  .then(function(data) {
+  let q = Math.floor(Math.random()*data.length);
+  let quo = data[q]; 
+
+  document.getElementById("quoteOfTheMoment").innerHTML = "Quote of the moment: " + quo.text + " - " + quo.author;
+  }); 
+
+//-------------------------------------------------------------
+function weatherBalloon(cityID) {
+	debugger;
+  var key = 'f6d00e092bc07342d18849a98f5b17bc';
+	fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID + '&appid=' + key)  
+	.then(function(resp) { return resp.json() }) // Convert data to json
+	.then(function(data) {
+		drawWeather(data); // Call drawWeather
+	})
+	.catch(function(error) {
+		console.log(error)
+	});     
+}
+//-------------------------------------------------------------
+function drawWeather( d ) {
+	var celcius = Math.round(parseFloat(d.main.temp)-273.15);
+	var fahrenheit = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32); 
+console.log(d)	
+	document.getElementById('description').innerHTML = "Description of Weather: " + d.weather[0].description;
+
+	document.getElementById('temp').innerHTML = "Temperature: " + celcius + '&deg;' + " celcius";
+
+	document.getElementById('location').innerHTML = "Location: " + d.name + ", " + d.sys.country;
+
+  document.getElementById("wind").innerHTML = "Wind Speed: " + d.wind.speed + " MPH";
+
+  document.getElementById("sunrise").innerHTML = "Sunrise: " + new Date(d.sys.sunrise).toString().split("1970")[1];
+
+  document.getElementById("sunset").innerHTML = "Sunset: " + new Date(d.sys.sunset).toString().split("1970")[1];
+
+  document.getElementById("humidity").innerHTML = "Humidity: " + d.main.humidity + "%";
+}
+
+//-------------------------------------------------------------
+  weatherBalloon(5368361)
+                          
+  </script> 
   </head>
   
-  <body style="background-color:LightYellow;">
+  <body style="background-color:LightBlue;">
     
     <center><font face = "Times New Roman" size = "10">Welcome to the Convenient Web!</font></center><br/>
+    <br>
+    <center><em><span id = "quoteOfTheMoment"></span></em></center>
     <br><br>
+
+  <div id="weather">
+    <div id="description">Description: </div>
+    <div id="temp">Temperature: </div>
+    <div id="location">Location: </div>
+    <div id = "wind"></div>
+    <div id = "sunrise"></div>
+    <div id = "sunset"></div>
+    <div id = "humidity"></div>
+  </div>
+<br><br>
     <a href =signup.html>Click Here to Sign Up For An Account </a>
     <br>
     <a href = numberFun.html>Click for number fun!</a>
@@ -46,10 +126,12 @@
     <a href = math/triangles.html>Click for triangle calculations</a>
     <br>
     <a href = wordFrequency.html>Click for wordFrequency</a>
+    <br>
+    <a href = hackerRank/fetchExample.html>Click for fetch() example</a>
     <br><br><br><br>
     <font face = "Times New Roman" size = "6">ABOUT ME</font>
     <p>
-    This was a website created to help myself, Ada Tsai, learn how to code. I am 11 years old, and I am going into 6th grade. Please feel free to explore this website as you wish. You might find that many links are incomplete, so please do not criticize. They are a work in progress. Thank you very much for exploring my website! I truly appreciate it! 
+    This was a website created to help myself, Jessica Tsai, learn how to code. I am 11 years old, and I am going into 6th grade. Please feel free to explore this website as you wish. You might find that many links are incomplete, so please do not criticize. They are a work in progress. Thank you very much for exploring my website! I truly appreciate it! 
     </p>
     <br>
     <font face = "Times New Roman" size = "6">Frequently Asked Questions</font>
@@ -60,7 +142,7 @@
     Go right ahead! If you are a beginner with no experience in coding, you may want to find a teacher or coach to help you. If you have had a bit of experience, you might want to try out different websites to help enhance your skills. I personally like to use HackerRank and W3Schools. HackerRank is a great website with really cool courses. W3Schools provides hundreds of articles to help you learn how to code and both websites have hands-on activities. There are many others that I have heard of too, but I prefer these the best.
     </p>
     <b><font face = "Times New Roman" size = "4">Where Do I store My Code?</font></b>
-    <p>When I first started, I used Github. It is a great place to store your code, and it is very organized. Later on, I switched to Repl.it because I could directly run my code and console in the website. It is up to you, and you may even want to try other websites too!</p>
+    <p>When I first started, I used Github. It is a great place to store your code, and it is very organized. Later on, I switched to Repl.it because I could directly run my code and console in the website. Please note that repl.it is connected to Github, only I find it more convenient. Still, it is up to you, and you may even want to try other websites too!</p>
     <b><font face = "Times New Roman" size = "4">How Long Does it Take You to Learn How to Code Completely?</font></b>
     <p>Personally, I haven't even finished yet. From what I know, it depends on how much effort you have put into it. If you did one hour a week on coding, it would take you quite a while, but if you take 3 hours everyday on coding like I currently am, you would see yourself improving at a nice and steady rate. Again, this is all up to you.</p>
   </body>

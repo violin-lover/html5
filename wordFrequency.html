@@ -38,10 +38,14 @@ Input your text:
 <textarea id = "textToTest" rows = "13" cols = "40" class = textarea></textarea>
 <br>
 <br>
-<button id = "process" onclick = "analyzeText(textToTest.value)">Process</button>
+<button id = "processWords" onclick = "analyzeText(textToTest.value)">Process Word Frequency</button>  
+  <button id = "processLetters" onclick = "letterAnalization(textToTest.value)">Process Letter Frequency</button>
 <br>
 <br>
 <div id = wordFrequencyAnswer></div>
+<br>
+<br>
+<div id = letterFrequencyAnswer></div>
   </p>
 
 </body>

@@ -1,4 +1,3 @@
-
 var wordPattern = function(pattern, str) {
    debugger;
    let patternObj = {};

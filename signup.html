@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Password Input Control</title>
+    <title>Sign Up for an Account</title>
     <script>
         function process() {
             alert("Thank You for Signing Up!");
@@ -35,34 +35,30 @@
         function checkbirthDate(birthDateInput) {
             let date =
                 new Date(birthDateInput.value);
-            alert(date);
             let year = date.getYear();
             let now = new Date();
-            alert(year + now);
             let age = now.getYear() - year
-            alert(age);
         }
 
         function checkAge(ageInput) {
-            alert(ageInput.value);
             if (ageInput.value < 10) {
                 alert('To join this forum, you must be at least 10. Please change this age:   ' + ageInput.value);
                 ageInput.focus();
             }
-            if (ageInput.value > 100) {
-                alert('You are very old. You age must be less than 100. Please change this age:   ' + ageInput.value);
+            if (ageInput.value > 120) {
+                alert('You are very old. You age must be less than 120. Please change this age:   ' + ageInput.value);
                 ageInput.focus();
             }
 
         }
 
-        function checkGender(gender) {
+        /*function checkGender(gender) {
             alert('To confirm, you are:   ' + gender);
-        }
+        }*/
 
         function checkPassword(passwordInput) {
             if (passwordInput.value.length < 8) {
-                alert('Your password must be at least 8 characters wrong. Please change: ********');
+                alert('Your password must be at least 8 characters long.');
                 passwordInput.focus();
             }
             if (passwordInput.value === passwordInput.value.toLowerCase() || passwordInput.value === passwordInput.value.toUpperCase()) {
@@ -137,8 +133,10 @@
             <option value="Ms" selected>Ms</option>
             <option value="Mrs">Mrs</option>
             <option value="Mr">Mr</option>
+            <option value="Mx">Mx</option>
             <option value="Dr">Dr</option>
             <option value="Professor">Professor</option>
+            <option value="Reverend">Reverend</option>
         </select>
         <br>
         <br> First Name :
@@ -156,9 +154,11 @@
         <br> Gender* :
         <input type="radio" name="Gender" value="Female" onchange="checkGender('Female')"> Female
         <input type="radio" name="Gender" value="Male" onchange="checkGender('Male')"> Male
+        <input type="radio" name="Gender" value="Other" onchange="checkGender('Male')"> Other
+        <input type="radio" name="Gender" value="Prefer Not to Say" onchange="checkGender('Male')"> Prefer not to say
         <br>
         <br> Address :
-        <input type="text" name="address" />*
+        <input type="text" name="address" />
         <br>
         <br> User ID :
         <input type="text" name="user_id" />*
@@ -190,7 +190,7 @@
         <br>
         <br>
         <br>
-        <em>*mandatory</em>
+        <em>Please try to fill in boxes marked with *</em>
 
     </form>
     </center>

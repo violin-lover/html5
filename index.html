@@ -7,19 +7,53 @@
 
   <style>
 
+body {
+background-color: #778d7a;
+font-family:Optima, sans-serif;
+border-style: dotted;
+border-color: #dbe1dc;
+border-width: 10px;
+  
+margin-left:20px;
+margin-right:20px;
+margin-top:35px;
+margin-bottom:35px;
+
+padding-left:30px;
+padding-right:30px;
+padding-top:30px;
+padding-bottom:10px;
+}
+
 #quoteOfTheMoment {
 background-color: LightSteelBlue;
-font-size : 22px;
+font-size:17px;
+font-family:Optima, sans-serif;
 }
 
 #weather {
-background-color: LightSteelBlue;
+background-color: #dbe1dc;
 font-size: 17px;
+font-family: Optima, sans-serif;
+}
+
+#quoteOfTheMoment{
+  color: #5F8575;
+  font-family: cursive;
+  background-color: #dbe1dc;
+  text-align:center;
+  border-style: double;
+  border-width: 3px;
+  padding-left:10px;
+  padding-right:10px;
+  padding-top:5px;
+  padding-bottom:5px;
+  font-style: italic;
 }
   </style>
 
 
-  <script>
+<script>
 
 fetch("https://type.fit/api/quotes")
   .then(function(response) {
@@ -30,8 +64,11 @@ fetch("https://type.fit/api/quotes")
   let q = Math.floor(Math.random()*data.length);
   let quo = data[q]; 
 
-  document.getElementById("quoteOfTheMoment").innerHTML = "Quote of the moment: " + quo.text + " - " + quo.author;
-  }); 
+  document.getElementById("quoteOfTheMoment").innerHTML = quo.text + " - " + quo.author});
+    
+  /*.then(function(data) {
+    document.getElementById("quoteOfTheMoment").innerHTML = `Motivational Quote of the moment:  ${data[Math.floor(Math.random() * data.length)].text} - ${data[Math.floor(Math.random() * data.length)].author}`;
+  }); */
 
 //-------------------------------------------------------------
 function weatherBalloon(cityID) {
@@ -71,22 +108,21 @@ console.log(d)
                           
   </script> 
   </head>
-  
-  <body style="background-color:LightBlue;">
     
-    <center><font face = "Times New Roman" size = "10">Welcome to the Convenient Web!</font></center><br/>
+    <center><font face = "Optima" size = "10">Welcome to the Convenient Web!</font></center>
     <br>
-    <center><em><span id = "quoteOfTheMoment"></span></em></center>
+    <br>
+    <center><em><font face = "Optima" size = "5">Quote of the moment:</font><br><br><span id = "quoteOfTheMoment"></em></center>
     <br><br>
 
   <div id="weather">
     <div id="description">Description: </div>
     <div id="temp">Temperature: </div>
     <div id="location">Location: </div>
-    <div id = "wind"></div>
-    <div id = "sunrise"></div>
-    <div id = "sunset"></div>
-    <div id = "humidity"></div>
+    <div id = "wind">Wind Speed: </div>
+    <div id = "sunrise">Sunrise: </div>
+    <div id = "sunset">Sunset: </div>
+    <div id = "humidity">Humidity: </div>
   </div>
 <br><br>
     <a href =signup.html>Click Here to Sign Up For An Account </a>
@@ -133,24 +169,27 @@ console.log(d)
     <h3><em>Want some fun instead of all the things above? Here you go then!</em></h3>
     <br>
     <em><a href = Snake_Game/snake.html>Click here for the snake game!</a></em>
+    
     <br><br><br><br>
-    <font face = "Times New Roman" size = "6">ABOUT ME</font>
+    <font face = "Optima" size = "6">ABOUT ME</font>
     <p>
-    This was a website created to help myself, Jessie Cai, learn how to code and compile all of my JavaScript works together. I am 13 years old, and I am currently in 7th grade. Please feel free to explore this website as you wish. You might find that many links are incomplete, so please do not criticize. They are a work in progress. Thank you very much for exploring my website! 
+    This was a website created to help myself, Jessie Cai, learn how to code and compile all of my JavaScript works together. This was first made when I was 11 years old and entering 6th grade. As of now, this website is still improving. Please feel free to explore this website as you wish. You might find that many links are incomplete, so please do not criticize. They are a work in progress. Thank you very much for exploring my website! 
     </p>
     <br>
-    <font face = "Times New Roman" size = "6">Frequently Asked Questions</font>
+    <font face = "Optima" size = "6">Frequently Asked Questions</font>
     <br>
     <br>
-    <b><font face = "Times New Roman" size = "4">What If I Want to Learn How to Code?</font></b>
+    <b><font face = "Optima" size = "4">What If I Want to Learn How to Code?</font></b>
     <p>
     Go right ahead! If you are a beginner with no experience in coding, you may want to find a teacher or coach to help you. If you have had a bit of experience, you might want to try out different websites to help enhance your skills. I personally like to use HackerRank and W3Schools. HackerRank is a great website with really cool courses. W3Schools provides hundreds of articles to help you learn how to code and both websites have hands-on activities. There are many others that I have heard of too, but I prefer these the best.
     </p>
-    <b><font face = "Times New Roman" size = "4">Where Do I store My Code?</font></b>
+    <b><font face = "Optima" size = "4">Where Do I store My Code?</font></b>
     <p>When I first started, I used Github. It is a great place to store your code, and it is very organized. Later on, I switched to Repl.it because I could directly run my code and console in the website. Please note that repl.it is connected to Github, only I find it more convenient. Still, it is up to you, and you may even want to try other websites too!</p>
-    <b><font face = "Times New Roman" size = "4">How Long Does it Take You to Learn How to Code Completely?</font></b>
-    <p>Personally, I haven't even finished yet. From what I know, it depends on how much effort you have put into it. If you did one hour a week on coding, it would take you quite a while, but if you take 3 hours everyday on coding like I currently am, you would see yourself improving at a nice and steady rate. Again, this is all up to you.</p>
+    <b><font face = "Optima" size = "4">How Long Does it Take You to Learn How to Code Completely?</font></b>
+    <p>Personally, I haven't even finished yet. From what I know, it depends on how much effort you have put into it. If you did one hour a week on coding, it would take you quite a while, but if you set time aside everyday to code, you would see yourself improving at a nice and steady rate. Again, this is all up to you.</p>
   </body>
-      
-</html>
+<br>
+<br>
 © 2020 GitHub, Inc.
+</html>
+

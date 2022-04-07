@@ -21,34 +21,39 @@ margin-bottom:35px;
 
 padding-left:30px;
 padding-right:30px;
-padding-top:30px;
+padding-top:25px;
 padding-bottom:10px;
-}
-
-#quoteOfTheMoment {
-background-color: LightSteelBlue;
-font-size:17px;
-font-family:Optima, sans-serif;
 }
 
 #weather {
 background-color: #dbe1dc;
+color: #5F8575;
 font-size: 17px;
 font-family: Optima, sans-serif;
+border-style: double;
+border-width: 3px;
+border-radius: 15px;
+padding-left:10px;
+padding-right:10px;
+padding-top:5px;
+padding-bottom:5px;
 }
 
 #quoteOfTheMoment{
   color: #5F8575;
   font-family: cursive;
+  font-size: 20px;
   background-color: #dbe1dc;
   text-align:center;
   border-style: double;
   border-width: 3px;
+  border-radius:15px;
   padding-left:10px;
   padding-right:10px;
   padding-top:5px;
   padding-bottom:5px;
   font-style: italic;
+  
 }
   </style>
 
@@ -65,10 +70,6 @@ fetch("https://type.fit/api/quotes")
   let quo = data[q]; 
 
   document.getElementById("quoteOfTheMoment").innerHTML = quo.text + " - " + quo.author});
-    
-  /*.then(function(data) {
-    document.getElementById("quoteOfTheMoment").innerHTML = `Motivational Quote of the moment:  ${data[Math.floor(Math.random() * data.length)].text} - ${data[Math.floor(Math.random() * data.length)].author}`;
-  }); */
 
 //-------------------------------------------------------------
 function weatherBalloon(cityID) {
@@ -112,7 +113,7 @@ console.log(d)
     <center><font face = "Optima" size = "10">Welcome to the Convenient Web!</font></center>
     <br>
     <br>
-    <center><em><font face = "Optima" size = "5">Quote of the moment:</font><br><br><span id = "quoteOfTheMoment"></em></center>
+    <center><em><font face = "Optima" size = "5">Quote of the moment:</font><br><br><div id = "quoteOfTheMoment"></em></center>
     <br><br>
 
   <div id="weather">
@@ -133,8 +134,8 @@ console.log(d)
     <br>
     <a href = converter.html>Click for temperature converter</a>
     <br>
-    <a href = Reply.html>Click for reply form</a>
-    <br>
+    <!--<a href = Reply.html>Click for reply form</a>
+    <br>-->
     <a href = math/nilakantha.html>Click for Nilakantha</a>
     <br>
     <a href = math/fibonacci.html>Click for Fibonacci</a>
@@ -174,6 +175,8 @@ console.log(d)
     <font face = "Optima" size = "6">ABOUT ME</font>
     <p>
     This was a website created to help myself, Jessie Cai, learn how to code and compile all of my JavaScript works together. This was first made when I was 11 years old and entering 6th grade. As of now, this website is still improving. Please feel free to explore this website as you wish. You might find that many links are incomplete, so please do not criticize. They are a work in progress. Thank you very much for exploring my website! 
+<br><br>
+    Some of my other hobbies include playing violin, piano, and figure skating. 
     </p>
     <br>
     <font face = "Optima" size = "6">Frequently Asked Questions</font>
@@ -184,12 +187,13 @@ console.log(d)
     Go right ahead! If you are a beginner with no experience in coding, you may want to find a teacher or coach to help you. If you have had a bit of experience, you might want to try out different websites to help enhance your skills. I personally like to use HackerRank and W3Schools. HackerRank is a great website with really cool courses. W3Schools provides hundreds of articles to help you learn how to code and both websites have hands-on activities. There are many others that I have heard of too, but I prefer these the best.
     </p>
     <b><font face = "Optima" size = "4">Where Do I store My Code?</font></b>
-    <p>When I first started, I used Github. It is a great place to store your code, and it is very organized. Later on, I switched to Repl.it because I could directly run my code and console in the website. Please note that repl.it is connected to Github, only I find it more convenient. Still, it is up to you, and you may even want to try other websites too!</p>
+    <p>When I first started, I used Github. It is a great place to store your code, and it is very organized. Later on, I switched to Repl.it because I could directly run my code and console in the website. Please note that repl.it is connected to Github, only I find it more convenient. Still, it is up to you, and you may even want to try other websites or applications too! For example, I am currently using VS Code to learn how to code in Java (not the same as JavaScript!). 
+    </p>
     <b><font face = "Optima" size = "4">How Long Does it Take You to Learn How to Code Completely?</font></b>
     <p>Personally, I haven't even finished yet. From what I know, it depends on how much effort you have put into it. If you did one hour a week on coding, it would take you quite a while, but if you set time aside everyday to code, you would see yourself improving at a nice and steady rate. Again, this is all up to you.</p>
   </body>
 <br>
 <br>
-© 2020 GitHub, Inc.
+© 2022 GitHub, Inc.
 </html>
 

@@ -1,5 +1,24 @@
 <html>
 <head>
+<style>
+  body {
+    background-color: #778d7a;
+    font-family:Optima, sans-serif;
+    border-style: dotted;
+    border-color: #dbe1dc;
+    border-width: 10px;
+  
+    margin-left:20px;
+    margin-right:20px;
+    margin-top:35px;
+    margin-bottom:35px;
+
+    padding-left:30px;
+    padding-right:30px;
+    padding-top:25px;
+    padding-bottom:10px;
+  }
+</style>
 <script>
 let firstName=localStorage.getItem('firstName')
 let lastName=localStorage.getItem('lastName')
@@ -14,14 +33,22 @@ let title=localStorage.getItem('title')
 
 <h2>Thank you for signing up!</h2>
 Dear 
-<span id='title'></span>
+<!--<span id='title'></span>
 <span id='firstName'></span>
-<span id='lastName'></span>
+<span id='lastName'></span>-->
+Wonderful Human that has come across this website,
 <br>
-You have been tricked. You never actually signed up for anything. In fact, I now have all I need to hack into your computer and retrieve any information about you. A virus will soon approach your computer. Beware.
+You have been tricked. You never actually signed up for anything. In fact, I now have all I need to hack into your computer and retrieve any information about you. <p style="color:#E8320B; font-size:24px;";>A virus will soon approach your computer. Beware.<p>
+<br>
+<b>Just kidding!</b> Why would I do that to you? This website was made to help me learn how to code! The only thing actually approaching you is a great Rick Astley song ;) If you have any feedback for me, please email me at snowmixii1@gmail.com. I'm open to all feedback. Thank you for stopping by! 
 <br>
 <br>
-<b>Just kidding!</b> Why would I do that to you? This website was made to help me learn how to code! If you have any feedback for me, please email me at snowmixii1@gmail.com. I'm open to all feedback. Thank you for stopping by!
+<iframe width="600" height="375" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1">
+</iframe>
+<br>
+<br>
+<br>
+(P.S. If you really don't trust me, go get someone to check my code out for you. There's literally nothing that could possibly hack you! Although, my feelings are a bit hurt...just kidding! I understand.)
 <script>
 
 document.getElementById("firstName").innerHTML = firstName;

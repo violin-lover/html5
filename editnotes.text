@@ -1,18 +1,23 @@
+Theme: cottagecore
+
 Overall CSS:
-- quote border spacing error
+- quote border spacing error  
 - cottegecore
 - change github date at bottom of home page
+FINISHED
 
 Signup:
 - more aesthetic
 - check spelling
 - nicer to look at
 
+
 Reply to signup:
 - more aesthetic
 - all CSS improvements
-- put a cute little photo for fun
+- put a cute little photo for fun (ending--I put a rickroll)
 - change who it is addressed to (ask Kenny)
+FINISHED
 
 numberFun:
 - capitilization
@@ -58,4 +63,10 @@ encrypter:
 - make it scarier
 - fonts/aesthetics as always
 - button design
+
+wordFrequency:
+- prettier
+- put two tables that appear side by side
+- widen typing area
+- aeshetics all the time
 
